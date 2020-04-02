@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #photo{
+            width: 500px;
+            height: 500px;
+            background: red;
+            margin: auto;
+            position: relative;
+        }
+
+    </style>
+    <script>
+        var photo;
+         var mdiv
+
+        window.addEventListener("load", function(){
+            ondiv();
+        });
+
+        function ondiv(){
+           
+            var t=0;
+            for(var i =0; i<100; i++){
+                var l = 0; 
+                t = i*5
+                for(var j=0; j<100; j++){
+            mdiv = document.createElement("div");
+            mdiv.style.height=5 + "px";
+            mdiv.style.width=5 + "px";
+            mdiv.style.top = (i*5)+ "px";
+            mdiv.style.left = (j*5)+ "px";
+
+            mdiv.style.position="absolute";
+            mdiv.style.background="gray";
+
+            photo = document.getElementById("photo")
+            photo.appendChild(mdiv);
+            l +=5;
+
+            mdiv.addEventListener("mouseover", function(){
+                this.style.opacity=0;
+            
+
+            })
+                }
+                
+            }
+
+
+        }
+        function showA(){
+              
+              photo = document.getElementById("photo");
+              mdiv = document.getElementById("mdiv")
+              photo.removeChild(mdiv);
+
+          }
+
+
+
+
+    </script>
+</head>
+<body>
+    <div id="photo"></div>
+    <button id="answer" onclick="showA()">정답보기</button>
+</body>
+</html>

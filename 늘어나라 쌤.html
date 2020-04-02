@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        var a=0.1 //비율계수
+        var targetH=50; //메뉴바가 늘어날 목표 높이!!!
+        var menu; //모든 영역에서 접근해야 하므로 전역변수로 pass
+        window.addEventListener("load", function(){
+            createMesu();
+            setInterval(move,25);
+        })
+
+        //메뉴바 생성
+        function createMesu(){
+            menu = document.createElement("div");
+            menu.style.width = 100+ "px";
+            menu.style.height = 100+ "px";
+            menu.style.background="red";
+            menu.style.margin="auto";
+
+            // 바디에 부착하자
+            document.body.appendChild(menu);
+
+            //처음부터 자동으로 야금야금 할 생각하지마라
+            // 먼저 수동이 완성된 후에 나중에 한다..
+            menu.addEventListener("mouseover", function(){
+                //this.style.background = "yellow";
+                //this.style.height = 500 + "px"
+                targetH=500;
+            })
+            menu.addEventListener("mouseout", function(){
+                //this.style.background = "red";
+                //this.style.height = 100 + "px"
+                targetH=50;
+
+            })
+        }
+
+        //감속도로 수렴하게 할 함수
+        //나의 현재값 = 나의 현재값 + 일정비율*(목표한값 - 현재나의값)
+        function move(){
+           menu.style.height =  parseFloat(menu.style.height) + a*(targetH - parseFloat(menu.style.height)) +"px";
+        }
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

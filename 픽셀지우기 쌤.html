@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #container{
+            width: 600px;
+            height: 600px;
+            background: red;
+            margin: auto;
+            position: relative;
+        }
+    </style>
+    <script>
+        var container;
+        var arr = new Array(); //크기가 정해져 있지 않다
+        index =0;
+
+        window.addEventListener("load", function(){
+            container = document.getElementById("container");
+            container.style.backgroundImage="url('../images/background/1.jpg')";
+            container.style.backgroundSize="600px 600px";
+            createRect()
+        });
+
+        function createRect(){
+            for(var a=0;a<20;a++){
+                for(var i = 0; i<20; i++){
+                container = document.getElementById("container");
+            var div = document.createElement("div");
+            div.style.width = 28 +"px";
+            div.style.height = 28 +"px";
+            div.style.border = "1px solid black";
+            div.style.background = "yellow"
+            div.style.position="absolute";
+            div.style.left = (i*30) + "px";
+            div.style.top = (a*30) + "px";
+            div.style.opacity=0.5;
+            container.appendChild(div);
+
+            div.addEventListener("mouseover", function(){
+                this.style.opacity=0;
+            });
+
+            // 전역변수로 선언된 배열에 방금 태어난 div를 담아주자
+            arr.push(div);
+            }
+            }
+        }
+
+        function remove1(){
+
+            container.removeChild(arr[index]);
+            setTimeout("remove1()", 100);
+            index ++;
+           
+        }
+
+        function remove2(){
+            for(var i=0; i<arr.length; i++){
+                container.removeChild(arr[i]);// 지정한 자식 요소를 제거!!
+            }
+        }
+
+        function giveHint(){
+            container.removeChild(arr[parseInt(Math.random()*400)]);
+        }
+
+    </script>
+</head>
+<body>
+    <button onclick="remove1()">천천히 없애기</button>
+    <button onclick="remove2()">셀없애기</button>
+    <button onclick="giveHint()">힌트주기</button>
+    <div id="container"></div>
+</body>
+</html>

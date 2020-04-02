@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        // 배열이란?
+        // 1) 사물을 늦어서게 나열한 상태!!
+        // 전산에서는 사물 대신 데이터를 메모리에 순서있게 올려놓으면 됨.
+        // 장점 : 변수명을 부여하지 않고도 데이터를 접근할 수 있다!!
+
+        var x = 1;
+        var y = 2;
+
+        var arr = new Array(2); //배열 명시적 선언!!!!
+        arr[0] = 1;
+        arr[1] = 2;
+
+       //  var newarr = new Array('1','2','3','4','5','6','7','8','9','10');
+       var newarr = new Array(10);
+        for(var i=0; i<10; i++){
+            newarr[i]=i;
+            document.write(newarr[i]+"<br>");
+        }
+
+        var x = new Array(20);   //if else 로 가야된다.ㅇㅋ?
+        for(var i=0; i<2; i++){
+            for(var j=0; j<10; j++){
+                x[j] = 1;
+                x[i+j] = 2;
+            }
+           
+            document.write(x+"<br>")
+        }
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

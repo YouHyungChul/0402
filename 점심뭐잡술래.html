@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../js/lib.js"></script>
+    <script>
+        var arr=["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg"]
+        //javascript에서는 변수에 값을 할당하지 않으면 undefined로
+        //초기화된다.. java 언어에서는 객체값을 할당하지 않으면 null
+        //oracle, mysql등 데이터베이스에서는 컬럼에 값을 할당하지 않으면
+        //null이 들어있다..
+        var img;
+        function getFood(){
+            // 보유한 이미지들 대상으로 랜덤값을 추출하여 화면에 보이도록
+            var contanier = document.getElementById("container");
+
+            //이미 존재하는 자식요소가 있다면 container에서 제거하자
+            if(img != undefined){
+               contanier.removeChild(img);
+            }
+            img = document.createElement("img");
+            img.src="../images/Food/" + arr[getRandom(1,arr.length)];
+            contanier.appendChild(img);
+        }
+    </script>
+
+</head>
+<body>
+    <button onclick="getFood()">점심메뉴 자동선택</button>
+    <div id="container"></div>
+</body>
+</html>
