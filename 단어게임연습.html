@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #container{
+            position: relative;
+            background: red;
+            width: 400px;
+            height: 500px;
+        }
+        #question{
+            position: absolute;
+            top: 0px;
+            width: 100%;
+            height: 150px;
+            font-size: 40pt;
+            font-weight: bold;
+            text-align:center;
+            background: rebeccapurple;
+        }
+        #userInput{
+            position: absolute;
+            width: 100%;
+            height: 100px;
+            top: 150px;
+            margin: auto;
+            text-align: center;
+            font-size: 25pt;
+            background: royalblue;
+        }
+        #indicate{
+            position: absolute;
+            width: 100%;
+            height: 150px;
+            top: 250px;
+            background: sienna;
+        }
+        #score{
+            position: absolute;
+            width: 100%;
+            height: 100px;
+            top: 400px;
+            background: teal;
+        }
+    </style>
+    <script>
+        index = 0;
+        var container;
+        var question;
+        var ox=false;
+        var scorex = 0;
+        var word = new Array(10);
+        word[0] = "오렌지";
+        word[1] = "아이유";
+        word[2] = "카카오";
+        word[3] = "쿠팡";
+        word[4] = "아아";
+        word[5] = "아메아메";
+        word[6] = "티모";
+        word[7] = "코코코";
+        word[8] = "포포포";
+        word[9] = "모멘텀";
+
+        window.addEventListener("load", function(){
+            container = document.getElementById("container");
+            question = document.getElementById("question");
+            userInput = document.getElementById("userInput");
+            indicate = document.getElementById("indicate");
+            score = document.getElementById("score");
+
+            userInput.addEventListener("keyup", function(e){
+                // alert("dj");
+                if(e.keyCode == 13){
+                    if(question.innerText == this.value){
+                        index++;
+                        printWord();
+                        ox=true
+                        printOX();
+                        scorew();
+                    }else{
+                        ox=false;
+                        printOX();
+                        scorew();
+                    }
+                    this.value = "";
+                }
+
+            });
+            printWord();
+
+        });
+
+        function printWord(){
+            question.innerText = word[index];
+        }
+        
+        function printOX(){
+            (ox == true) ? indicate.innerText="O" :  indicate.innerText="X";
+        }
+        function scorew(){
+            (ox == true) ? scorex += 10 : scorex-=5;
+            score.innerText = scorex;
+        }
+    </script>
+
+</head>
+<body>
+    <div id="container">
+        <div id="question"></div>
+        <input type="text" id="userInput" placeholder="여기에 단어 입력"/>
+        <div id="indicate"></div>
+        <div id="score"></div>
+
+    </div>
+    
+</body>
+</html>
