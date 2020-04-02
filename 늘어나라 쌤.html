@@ -6,12 +6,12 @@
         var targetH=50; //메뉴바가 늘어날 목표 높이!!!
         var menu; //모든 영역에서 접근해야 하므로 전역변수로 pass
         window.addEventListener("load", function(){
-            createMesu();
+            createMenu();
             setInterval(move,25);
         })
 
         //메뉴바 생성
-        function createMesu(){
+        function createMenu(){
             menu = document.createElement("div");
             menu.style.width = 100+ "px";
             menu.style.height = 100+ "px";
