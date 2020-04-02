@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+
+    </style>
+    <script>
+        var div;
+        var a = 0.1;
+        var targetY =50;
+        window.addEventListener("load", function(){
+            createDiv();
+            setInterval(move,10);
+        });
+
+
+        function createDiv(){
+            div = document.createElement("div");
+            div.style.background = "red";
+            div.style.width = 100 + "px";
+            div.style.height = 100 + "px";
+            div.style.position = "absolute";
+            div.style.margin="auto";
+
+            document.body.appendChild(div);
+
+            div.addEventListener("mouseover", function(){
+                this.style.height = 500 + "px";
+                // targetY = 500;
+            });
+            div.addEventListener("mouseout", function(){
+                this.style.height = 100 + "px";
+                // targetY = 100;
+            });
+        }
+
+        function move(){
+            div.style.height = parseFloat(div.style.height) + a*(targetY - parseFloat(div.style.height)) + "px";
+
+        }
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
